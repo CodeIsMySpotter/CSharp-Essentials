@@ -40,3 +40,25 @@ Użyj `Single()` na liście w celu znalezienia elementu po ID, ale zrób to na d
 
 ## Zadanie 12: Dictionary z LINQ (ToDictionary)
 Mając listę obiektów `User(int Id, string Username)`, użyj metody rozszerzającej LINQ: `.ToDictionary(...)`. Jako pierwszy argument (lambdę) podaj z czego system ma wziąć **Klucz** (czyli `u => u.Id`), a jako drugi - z czego ma wziąć **Wartość** (`u => u.Username`). Zobaczysz błyskawiczną i bezpętlową transformację Listy na piękny, przeszukiwalny Słownik.
+
+## Zadanie 13: Złożone filtrowanie obiektów (Wiele warunków i rzutowanie)
+Zdefiniuj rekord `Employee(string Name, string Department, decimal Salary, DateTime HireDate)`. Stwórz zróżnicowaną listę pracowników. 
+Za pomocą pojedynczego zapytania LINQ znajdź wszystkich pracowników z działu "IT", którzy zarabiają powyżej 10000 i zostali zatrudnieni po 2020 roku. Wynik przekształć (używając `Select`) na listę samych imion i nazwisk (typ `List<string>`).
+
+## Zadanie 14: Paginacja wyników (Skip i Take)
+Stwórz listę zawierającą liczby od 1 do 100 (możesz użyć `Enumerable.Range(1, 100)`). 
+Zasymuluj działanie paginacji (stronicowania) na stronie internetowej, gdzie każda strona mieści 15 elementów. 
+Użyj metod `.Skip(...)` oraz `.Take(...)`, aby pobrać elementy znajdujące się wyłącznie na trzeciej stronie wyników (czyli elementy 31-45). Wypisz je na ekran.
+
+## Zadanie 15: Spłaszczanie kolekcji (SelectMany)
+Utwórz rekord `Department(string Name, List<string> Employees)`. Stwórz dwa lub trzy działy, z których każdy zawiera listę imion pracowników (niektóre imiona mogą się powtarzać w różnych kontekstach).
+Użyj metody `.SelectMany(d => d.Employees)` na liście działów, aby uzyskać jedną, spłaszczoną listę wszystkich pracowników ze wszystkich działów. Na koniec dodaj `.Distinct()`, aby upewnić się, że żadne imię się nie powtarza.
+
+## Zadanie 16: Sortowanie po kilku kryteriach (OrderBy i ThenBy)
+Użyj listy z Zadania 13. Posortuj pracowników najpierw alfabetycznie po dziale (`OrderBy(e => e.Department)`), a następnie wewnątrz każdego działu malejąco według ich pensji (`ThenByDescending(e => e.Salary)`). Wypisz posortowaną listę na konsoli, aby zweryfikować poprawne ułożenie.
+
+## Zadanie 17: Łączenie relacyjne danych (Join)
+Stwórz dwie listy rekordów: 
+1. `User(int Id, string Name)`
+2. `Order(int OrderId, int UserId, decimal TotalAmount)`
+Użyj metody `.Join(...)`, aby połączyć listę zamówień z listą użytkowników na podstawie pasujących identyfikatorów (`Id` i `UserId`). W wyniku (w parametrze `resultSelector`) wygeneruj nową kolekcję tekstów w formacie: `"{Name} złożył zamówienie na kwotę {TotalAmount} PLN"`.
