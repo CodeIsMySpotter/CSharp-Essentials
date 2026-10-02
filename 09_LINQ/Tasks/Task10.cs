@@ -9,6 +9,10 @@ public static class Task10
     public static void Run()
     {
         Console.WriteLine("--- Zadanie 10 ---");
-        // TODO: Integracja - Przygotowanie Func<int, bool> na zewnątrz i podanie do .Where()
+        List<int> list = [1, 2, 4, 5, 6];
+
+        Func<int, bool> filter = x => x % 3 == 0;
+        
+        Console.WriteLine(string.Join(", ", list.Where(filter)));
     }
 }

@@ -27,6 +27,11 @@ public class Program
                 case 10: Task10.Run(); break;
                 case 11: Task11.Run(); break;
                 case 12: Task12.Run(); break;
+                case 13: Task13.Run(); break;
+                case 14: Task14.Run(); break;
+                case 15: Task15.Run(); break;
+                case 16: Task16.Run(); break;
+                case 17: Task17.Run(); break;
                 default: Console.WriteLine("Nie znaleziono zadania o podanym numerze."); break;
             }
         }

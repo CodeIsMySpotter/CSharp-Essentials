@@ -9,6 +9,9 @@ public static class Task11
     public static void Run()
     {
         Console.WriteLine("--- Zadanie 11 ---");
-        // TODO: Integracja - Wyłapanie wyjątku InvalidOperationException z metody .Single()
+        List<int> IDs = [1, 2, 3, 4];
+
+        var value = IDs.Single();
+        Console.WriteLine(value);
     }
 }

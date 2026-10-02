@@ -9,6 +9,19 @@ public static class Task3
     public static void Run()
     {
         Console.WriteLine("--- Zadanie 3 ---");
-        // TODO: FirstOrDefault vs First (udowadnianie wyjątków)
+        
+        List<int> list = new();
+
+        var try1 = list.FirstOrDefault();
+        Console.WriteLine(try1);
+
+        try
+        {
+            var try2 = list.First();
+        } 
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }

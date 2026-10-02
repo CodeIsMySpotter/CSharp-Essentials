@@ -9,6 +9,9 @@ public static class Task7
     public static void Run()
     {
         Console.WriteLine("--- Zadanie 7 ---");
-        // TODO: Usunięcie duplikatów z listy za pomocą modyfikatora Distinct
+        List<int> numbers = new() { 1, 2, 2, 3, 3, 3, 4 };
+
+        var distincted = numbers.Distinct().ToList();
+        Console.WriteLine(string.Join(", ", distincted));
     }
 }
